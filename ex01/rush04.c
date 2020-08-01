@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush04.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyeongbinjo <kyeongbinjo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 01:32:09 by kyeongbinjo       #+#    #+#             */
-/*   Updated: 2020/08/02 01:48:25 by kyeongbinjo      ###   ########.fr       */
+/*   Created: 2020/08/02 01:39:58 by kyeongbinjo       #+#    #+#             */
+/*   Updated: 2020/08/02 02:13:47 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	rush (int a, int b){
 	next = '\n';
 	
 	while(!(row == b && col == a)){
-		if((row == 0) || (col == 0 && col == a-1)){
+		if((row == 0 && col == 0) || (row != 0 && row == b-1 && col != 0 && col == a-1)){
 			print_A();
 		}
 	
@@ -37,7 +37,7 @@ void	rush (int a, int b){
 			print_B();
 		}
 
-		else if((row == b-1) && (col == 0 || col == a-1)){
+		else if((row == 0 && col == a-1) || (row == b-1 && col == 0)){
 			print_C();
 		}
 
