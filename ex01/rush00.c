@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush03.c                                           :+:      :+:    :+:   */
+/*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyeongbinjo <kyeongbinjo@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 01:39:58 by kyeongbinjo       #+#    #+#             */
-/*   Updated: 2020/08/02 01:48:24 by kyeongbinjo      ###   ########.fr       */
+/*   Created: 2020/08/02 00:57:32 by kjo               #+#    #+#             */
+/*   Updated: 2020/08/02 01:18:54 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_putchar.c"
 
 void	rush(int, int);
-void	print_A(void);
-void	print_B(void);
-void	print_C(void);
+void	print_circle(void);
+void	print_hyphen(void);
+void	print_pipe(void);
 void	print_jump(void);
-void	ft_putchar(char);
+void	ft_putchar(char c);
 
 void	rush (int a, int b){
 	int row;
@@ -28,17 +28,17 @@ void	rush (int a, int b){
 	next = '\n';
 	
 	while(!(row == b && col == a)){
-		if((col == 0) || (row == 0 && row == b-1)){
-			print_A();
+		if((row == 0 && col == 0) || (row != 0 && row == b-1 && col == a-1) ||
+				(row == 0 && col==a-1) || (row == b-1 && col == 0)){
+			print_circle();
 		}
 	
-		else if(((row == 0 || row == b-1) && (col >= 1 && col <= a-2)) ||
-			((row >= 1 && row <= b-2) && (col == 0 || col == a-1))){
-			print_B();
+		else if((row == 0 || row == b-1) && (col >= 1 && col <= a-2)){
+			print_hyphen();
 		}
 
-		else if((col == a-1) && (row == 0 || row == b-1)){
-			print_C();
+		else if((row >= 1 && row <= b-2) && (col == 0 || col == a-1)){
+			print_pipe();
 		}
 
 		else if((row >= 1 && row < b-1) && (col >= 1 && col < a-1)){
@@ -55,26 +55,27 @@ void	rush (int a, int b){
 	}
 }
 
-void	print_A(void){
+void	print_circle(void){
 	char s;
-	s = 'A';
+	s = 'o';
 	ft_putchar(s);
 }
 
-void print_B(void){
+void	print_hyphen(void){
 	char s;
-	s = 'B';
+	s = '-';
 	ft_putchar(s);
 }
 
-void print_C(void){
+void	print_pipe(void){
 	char s;
-	s = 'C';
+	s = '|';
 	ft_putchar(s);
 }
 
-void print_jump(void){
+void	print_jump(void){
 	char s;
 	s = ' ';
 	ft_putchar(s);
 }
+
