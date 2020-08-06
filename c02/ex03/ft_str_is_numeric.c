@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyeongbinjo <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 22:20:33 by kyeongbin         #+#    #+#             */
-/*   Updated: 2020/08/04 22:49:13 by kyeongbin        ###   ########.fr       */
+/*   Updated: 2020/08/06 14:06:23 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
+int		ft_str_is_numeric(char *str)
 {
 	int i;
-	
+
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] < 48 || str[i] > 57)
+		if (str[i] < '0' || str[i] > '9')
 			return (0);
 		i++;
 	}

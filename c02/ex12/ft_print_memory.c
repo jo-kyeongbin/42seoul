@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/04 21:27:09 by kyeongbin         #+#    #+#             */
-/*   Updated: 2020/08/06 13:46:19 by kjo              ###   ########.fr       */
+/*   Created: 2020/08/05 12:06:37 by kjo               #+#    #+#             */
+/*   Updated: 2020/08/06 13:50:21 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	int i;
+#include <unistd.h>
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+void	*ft_print_memory(void *addr, unsigned int size)
+{
+
 }

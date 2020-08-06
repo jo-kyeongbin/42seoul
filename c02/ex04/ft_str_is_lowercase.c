@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyeongbinjo <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 22:38:23 by kyeongbin         #+#    #+#             */
-/*   Updated: 2020/08/04 22:48:09 by kyeongbin        ###   ########.fr       */
+/*   Updated: 2020/08/06 14:10:10 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_lowercase(char *str)
+int		ft_str_is_lowercase(char *str)
 {
 	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] < 98 || str[i] > 122)
+		if (str[i] < 'a' || str[i] > 'z')
 			return (0);
 		i++;
 	}
 	return (1);
 }
-		

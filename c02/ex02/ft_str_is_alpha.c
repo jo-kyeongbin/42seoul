@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyeongbinjo <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 21:58:40 by kyeongbin         #+#    #+#             */
-/*   Updated: 2020/08/04 22:52:25 by kyeongbin        ###   ########.fr       */
+/*   Updated: 2020/08/06 14:07:42 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+int		ft_str_is_alpha(char *str)
 {
 	int i;
-	
+
 	i = 0;
-	while (str != '\0')
+	while (str[i] != '\0')
 	{
-		if (!(str[i] >= 65 && str[i] <= 90) &&
-		 !(str[i] >= 97 && str[i] <= 122))
+		if (!(str[i] >= 'a' && str[i] <= 'z') &&
+		!(str[i] >= 'A' && str[i] <= 'Z'))
 			return (0);
 		i++;
 	}

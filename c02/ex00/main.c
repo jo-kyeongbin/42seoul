@@ -1,25 +1,58 @@
-#include "ft_strcpy.c"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jko <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/24 10:55:19 by jko               #+#    #+#             */
+/*   Updated: 2020/01/24 11:24:14 by jko              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
 
-void print_array(char *a)
+char *ft_strcpy(char *dest, char *src);
+
+int main(void)
 {
-	int i = 0;
-	while(a[i] != '\0')
-	{
-		printf("%c",a[i]);
-		i++;
-	}
+	char str[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '\0', '9'};
+	char dest[10];
+	write(1, str, 10);
 	printf("\n");
-}
 
-int main()
-{
-	char a[13] = "hello world!";
-	char b[13] = "hi hello hi!";
-	char *c;
+	ft_strcpy(dest, str);
+	write(1, dest, 10);
+	printf("\n");
 
-	c = ft_strcpy(a, b);
-	print_array(a);
-	print_array(b);
-	print_array(c);
+	strcpy(dest, str);
+	write(1, dest, 10);
+	printf("\n\n\n");
+
+	
+	char str2[10] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', '\0', 'j'};
+	char *dest2;
+	dest2 = (char *) malloc(sizeof(char) * 10);
+
+    write(1, str2, 10);
+    printf("\n");
+
+    dest2 = ft_strcpy(dest, str2);
+    write(1, dest, 10);
+	printf("\n");
+	write(1, dest2, 10);
+    printf("\n\n");
+
+	dest2 = strcpy(dest, str2);
+	printf("\n");
+    write(1, dest2, 10);
+    printf("\n");
+	write(1, dest2, 10);
+	printf("\n\n\n");
+
+
+	return 0;
 }

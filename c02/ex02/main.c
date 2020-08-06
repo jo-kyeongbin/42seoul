@@ -5,40 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jko <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 16:23:32 by jko               #+#    #+#             */
-/*   Updated: 2020/01/25 11:14:46 by jko              ###   ########.fr       */
+/*   Created: 2020/01/24 13:04:06 by jko               #+#    #+#             */
+/*   Updated: 2020/08/06 14:08:57 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-char *ft_strupcase(char *str);
+int	ft_str_is_alpha(char *str);
 
 int main(void)
 {
-	printf("%c, %c\n", 'a', 'a' - 32);
-
-	char tt[10] = {'a', 'b', 'c', '\0'};
-	printf("abc, %s\n", ft_strupcase(tt));
-
-	char tt1[10] = {'1', '2', '3', '\0'};
-	printf("123, %s\n", ft_strupcase(tt1));
-	
-	char tt2[10] = {'A', 'B', 'C', '\0'};
-	printf("ABC, %s\n", ft_strupcase(tt2));
-	
-	char tt3[] = {'a', 'B', 'c', '\0'};
-	printf("aBc, %s\n", ft_strupcase(tt3));
-	
-	char tt4[] = {'!', '@', '#', '\0'};
-	printf("!@#, %s\n", ft_strupcase(tt4));
-	
-	char tt5[] = {'a', 'A', 'b', 'B', '\0'};
-	printf("aAbB, %s\n", ft_strupcase(tt5));
-	
-	char tt6[] = {'\0'};
-	printf(", %s\n", ft_strupcase(tt6));
-	
+	char arr[6] = {'a', 'b', 'c', 'd', '\0', };
+	printf("123a, %d\n", ft_str_is_alpha("123a\0"));
+	printf("ABC, %d\n", ft_str_is_alpha("ABC\0"));
+	printf("abcd, %d\n", ft_str_is_alpha(arr));
+	printf("123, %d\n", ft_str_is_alpha("123\0"));
+	printf(", %d\n", ft_str_is_alpha("\0"));
+	printf("Aa[, %d\n", ft_str_is_alpha("Aa[\0"));
 	return (0);
 }

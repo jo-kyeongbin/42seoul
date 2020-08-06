@@ -3,13 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyeongbinjo <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 00:27:12 by kyeongbin         #+#    #+#             */
-/*   Updated: 2020/08/05 00:29:41 by kyeongbin        ###   ########.fr       */
+/*   Updated: 2020/08/06 13:49:27 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	
+	unsigned int i;
+
+	i = 0;
+	while (src[i] != '\0' && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
+}

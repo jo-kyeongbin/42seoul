@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
+/*   By: jko <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/04 21:27:09 by kyeongbin         #+#    #+#             */
-/*   Updated: 2020/08/06 13:46:19 by kjo              ###   ########.fr       */
+/*   Created: 2020/01/25 16:22:56 by jko               #+#    #+#             */
+/*   Updated: 2020/01/25 16:33:16 by jko              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	int i;
+#include <stdio.h>
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+void	ft_putstr_non_printable(char *str);
+
+int	main(void)
+{
+	printf("%s\n", "Coucou\ntu vas bien ?");
+	ft_putstr_non_printable("Coucou\ntu vas bien ?");
+	printf("\n\n");
+	return (0);
 }

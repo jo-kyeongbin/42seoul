@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyeongbinjo <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 23:39:51 by kyeongbin         #+#    #+#             */
-/*   Updated: 2020/08/04 23:43:50 by kyeongbin        ###   ########.fr       */
+/*   Updated: 2020/08/06 13:48:43 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strlowcase(char *str)
 {
 	int i;
-	
+
 	i = 0;
 	while (str[i] != '\0')
 	{

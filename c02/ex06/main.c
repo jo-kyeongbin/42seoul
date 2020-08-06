@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
+/*   By: jko <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/04 21:27:09 by kyeongbin         #+#    #+#             */
-/*   Updated: 2020/08/06 13:46:19 by kjo              ###   ########.fr       */
+/*   Created: 2020/01/24 16:14:35 by jko               #+#    #+#             */
+/*   Updated: 2020/01/24 16:17:34 by jko              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	int i;
+#include <stdio.h>
 
-	i = 0;
-	while (src[i] != '\0')
+int	ft_str_is_printable(char *str);
+
+int main(void)
+{
+	char c;
+
+	for (int i = -2; i < 130; i++)
 	{
-		dest[i] = src[i];
-		i++;
+		c = i;
+		printf("%d, %c, %d\n", i, c, ft_str_is_printable(&c));
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (0);
 }
