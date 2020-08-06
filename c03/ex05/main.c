@@ -1,26 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jko <marvin@42.fr>                         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 14:20:28 by jko               #+#    #+#             */
-/*   Updated: 2020/01/27 16:42:06 by jko              ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h>
 #include <string.h>
-
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-
-int				main(void)
-{
-	char dest1[50] = "abc";
-	char dest2[50] = "abc";
-	char src[] = "0123";
-	unsigned int size = 2;
-	printf("%s, %u\n%s, %lu\n", dest1, ft_strlcat(dest1, src, size), dest2, strlcat(dest2, src, size));
-	return (0);
+int main(){
+char a[20] = "hellow ";
+char b[20] = "world!";
+char c[20] = "hellow ";
+char d[20] = "world!";
+printf("%s %lu\n",a,strlcat(a,b,11));
+printf("%s %u\n",c,ft_strlcat(c,d,11));
 }

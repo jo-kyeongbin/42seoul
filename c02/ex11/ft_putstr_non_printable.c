@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 11:16:04 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/06 13:49:40 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/06 16:55:42 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	print_hex(char input)
 
 	a[0] = '\\';
 	a[1] = (input / 16) + 48;
-	a[2] = (input % 16) < 10 ? input : (input % 10) + 'a';
-	write(1, &a, 3);
+	a[2] = (input % 16) < 10 ? (input % 16) + 48 : (input % 10) + 'a';
+	write(1, a, 3);
 }
 
 void	ft_putstr_non_printable(char *str)
