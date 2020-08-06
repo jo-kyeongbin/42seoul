@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyeongbinjo <kyeongbinjo@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:47:45 by kyeongbinjo       #+#    #+#             */
-/*   Updated: 2020/08/05 20:40:35 by kyeongbinjo      ###   ########.fr       */
+/*   Updated: 2020/08/06 13:17:35 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*find_to_text(char *str, char *to_find, char *init_point)
 {
-	int key;
-	char *ptr;
+	int		key;
+	char	*ptr;
 
 	key = 0;
 	while (*str != '\0')

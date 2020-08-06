@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jko <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 13:08:23 by jko               #+#    #+#             */
-/*   Updated: 2020/08/06 13:32:18 by kjo              ###   ########.fr       */
+/*   Created: 2020/01/27 14:20:28 by jko               #+#    #+#             */
+/*   Updated: 2020/01/27 16:42:06 by jko              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-char	*ft_strstr(char *str, char *to_find);
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 
-int		main(void)
+int				main(void)
 {
-	char str[30] = "aasd123hellow";
-	char to_find[10] = "123";
-
-	printf("%s\n%s\n", ft_strstr(str, to_find), strstr(str, to_find));
-
+	char dest1[50] = "abc";
+	char dest2[50] = "abc";
+	char src[] = "0123";
+	unsigned int size = 2;
+	printf("%s, %u\n%s, %lu\n", dest1, ft_strlcat(dest1, src, size), dest2, strlcat(dest2, src, size));
 	return (0);
 }
