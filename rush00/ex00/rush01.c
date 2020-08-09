@@ -6,10 +6,10 @@
 /*   By: kjo <kjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 14:25:23 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/02 15:10:43 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/05 09:57:22 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "ft_putchar.c"
 void	ft_putchar(char c);
 
 void	print_square(int a, int b, int col, int row)
