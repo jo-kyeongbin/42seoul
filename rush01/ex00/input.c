@@ -6,7 +6,7 @@
 /*   By: kyeongbinjo <kyeongbinjo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 19:40:33 by sochoi            #+#    #+#             */
-/*   Updated: 2020/08/09 20:02:10 by kyeongbinjo      ###   ########.fr       */
+/*   Updated: 2020/08/09 21:42:36 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		get_input(char *input, char *str)
 
 int		input_exception(int argc, char *argv[], char *input)
 {
-	//int		cursor;
+	int		cursor;
 
 	if (argc != 2)
 	{
@@ -55,12 +55,13 @@ int		input_exception(int argc, char *argv[], char *input)
 		write(1, "Error\n", 6);
 		return (-1);
 	}
-	/*cursor = 0;
+	cursor = 0;
 	while (cursor < 4)
 	{
 		if (input[cursor] == '1')
 			return (1);
 		cursor++;
-	}*/
-	return (0);
+	}
+	write(1, "Error\n", 6);
+	return (-1);
 }
