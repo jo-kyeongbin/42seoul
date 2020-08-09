@@ -6,12 +6,13 @@
 /*   By: sochoi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 19:40:33 by sochoi            #+#    #+#             */
-/*   Updated: 2020/08/08 19:41:13 by sochoi           ###   ########.fr       */
+/*   Updated: 2020/08/09 16:25:11 by sochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
+#include "input.h"
 
 int		get_input(char *input, char *str)
 {
@@ -57,7 +58,7 @@ int		input_exception(int argc, char *argv[], char *input)
 	cursor = 0;
 	while (cursor < 4)
 	{
-		if (input[cursor] == '4')
+		if (input[cursor] == '1')
 			return (1);
 		cursor++;
 	}

@@ -6,16 +6,14 @@
 /*   By: sochoi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 11:52:24 by sochoi            #+#    #+#             */
-/*   Updated: 2020/08/08 19:43:57 by sochoi           ###   ########.fr       */
+/*   Updated: 2020/08/09 15:57:01 by sochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-
-int		search(int row, char h, char **map, char *input);
-
-int		input_exception(int argc, char *argv[], char *input);
+#include "search.h"
+#include "input.h"
 
 char	**init_map(void)
 {
