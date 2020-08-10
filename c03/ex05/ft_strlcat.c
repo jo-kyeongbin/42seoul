@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 20:43:09 by kyeongbinjo       #+#    #+#             */
-/*   Updated: 2020/08/06 13:16:31 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/10 14:53:17 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	size_dest;
 	unsigned int	size_src;
-	int				i;
-	int				j;
+	unsigned int	i;
+	unsigned int	j;
 
 	size_dest = size_is(dest);
 	size_src = size_is(src);
 	i = size_dest;
 	j = 0;
-	while (j < (int)(size - size_dest - 1) && (src[j] != '\0'))
+	while ((j + size_dest + 1) < size && (src[j] != '\0'))
 	{
 		dest[i] = src[j];
 		i++;

@@ -6,13 +6,13 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 11:16:04 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/06 16:55:42 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/10 10:01:39 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unistd.h"
+#include <unistd.h>
 
-void	print_hex(char input)
+void	print_hex(unsigned char input)
 {
 	char a[3];
 

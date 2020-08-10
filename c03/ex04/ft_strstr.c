@@ -6,20 +6,21 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:47:45 by kyeongbinjo       #+#    #+#             */
-/*   Updated: 2020/08/06 13:17:35 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/10 14:41:52 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*find_to_text(char *str, char *to_find, char *init_point)
+char	*find_to_text(char *str, char *to_find, char *find_init, char *ptr)
 {
 	int		key;
-	char	*ptr;
+	char	*str_save;
 
 	key = 0;
 	while (*str != '\0')
 	{
 		while (*str == *to_find && (*to_find != '\0'))
 		{
+			str_save = str;
 			if (key == 0)
 			{
 				ptr = str;
@@ -31,7 +32,8 @@ char	*find_to_text(char *str, char *to_find, char *init_point)
 		if (*to_find == '\0')
 			return (ptr);
 		key = 0;
-		to_find = init_point;
+		to_find = find_init;
+		str = str_save;
 		str++;
 	}
 	return (0);
@@ -40,11 +42,13 @@ char	*find_to_text(char *str, char *to_find, char *init_point)
 char	*ft_strstr(char *str, char *to_find)
 {
 	char *temp;
-	char *init_point;
+	char *find_init;
+	char *ptr;
 
-	init_point = to_find;
+	ptr = 0;
+	find_init = to_find;
 	if (*to_find == '\0')
 		return (str);
-	temp = find_to_text(str, to_find, init_point);
+	temp = find_to_text(str, to_find, find_init, ptr);
 	return (temp);
 }
