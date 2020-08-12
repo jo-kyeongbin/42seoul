@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/11 17:37:02 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/12 10:50:08 by kjo              ###   ########.fr       */
+/*   Created: 2020/08/12 09:59:41 by kjo               #+#    #+#             */
+/*   Updated: 2020/08/12 10:50:02 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
+int		ft_find_next_prime(int nb)
 {
 	int i;
 	int count;
 
-	i = nb;
-	count = 0;
 	if (nb <= 1)
-		return (0);
-	while (i > 0)
+		return (2);
+	else
 	{
-		if (nb % i == 0)
-			count++;
-		if (count >= 3)
-			return (0);
-		i--;
+		i = nb;
+		count = 0;
+		while (i > 0)
+		{
+			if (nb % i == 0)
+				count++;
+			if (count >= 3)
+				return (ft_find_next_prime(nb + 1));
+			i--;
+		}
+		return (nb);
 	}
-	return (1);
-}
+ }
