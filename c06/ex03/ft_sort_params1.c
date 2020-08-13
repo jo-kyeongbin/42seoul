@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
+/*   By: jko <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/13 10:06:14 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/13 13:50:05 by kjo              ###   ########.fr       */
+/*   Created: 2020/01/29 16:21:14 by jko               #+#    #+#             */
+/*   Updated: 2020/01/29 16:58:02 by jko              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 int		cmp_str(char *s1, char *s2)
 {
@@ -33,60 +32,47 @@ int		cmp_str(char *s1, char *s2)
 	return (-1);
 }
 
-void	print(char *a)
-{
-	int		size;
-	char	*init;
-
-	init = a;
-	size = 0;
-	while (*a != '\0')
-	{
-		a++;
-		size++;
-	}
-	a = init;
-	write(1, a, size);
-	write(1, "\n", 1);
-}
-
-void	swap(char *a, char *b)
-{
-	char temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-int		main(int argc, char **argv)
+void	print(int argc, char *argv[])
 {
 	int i;
 	int j;
-	char *temp;
 
 	i = 1;
-	if (argc < 1)
-		write(1, "Error!\n", 7);
+	while (i < argc)
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
+		i++;
+	}
+}
+
+int		main(int argc, char *argv[])
+{
+	int		i;
+	int		j;
+	char	*temp;
+
+	i = 1;
 	while (i < argc)
 	{
 		j = i + 1;
 		while (j < argc)
 		{
 			if (cmp_str(argv[i], argv[j]) > 0)
-			{	
-				printf("앙\n");
-				swap(argv[i], argv[j]);
-				//temp = argv[i];
-				//argv[i] = argv[j];
-				//argv[j] = temp;
+			{
+				temp = argv[i];
+				argv[i] = argv[j];
+				argv[j] = temp;
 			}
 			j++;
 		}
 		i++;
 	}
-	i = 1;
-	while (argv[i])
-		print(argv[i++]);
+	print(argc, argv);
 	return (0);
 }
