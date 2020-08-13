@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/12 09:59:41 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/13 11:36:32 by kjo              ###   ########.fr       */
+/*   Created: 2020/08/13 10:06:14 by kjo               #+#    #+#             */
+/*   Updated: 2020/08/13 10:20:30 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_find_next_prime(int nb)
+#include <unistd.h>
+
+int		length(char *a)
 {
 	int i;
-	int count;
 
-	if (nb <= 1)
-		return (2);
-	else
+	i = 0;
+	while (*a != '\0')
 	{
-		i = nb;
-		count = 0;
-		while (i > 0)
-		{
-			if (nb % i == 0)
-				count++;
-			if (count >= 3)
-				return (ft_find_next_prime(nb + 1));
-			i--;
-		}
-		return (nb);
+		a++;
+		i++;
 	}
+	return (i);
+}
+
+int		main(int argc, char **argv)
+{
+	int i;
+	int size;
+
+	i = argc - 1;
+	if (argc < 1)
+		write(1, "Error!\n", 7);
+	while (argv[i] && i >= 1)
+	{
+		size = length(argv[i]);
+		write(1, argv[i], size);
+		write(1, "\n", 1);
+		i--;
+	}
+	return (0);
 }
