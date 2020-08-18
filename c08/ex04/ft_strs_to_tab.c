@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ffff.c                                             :+:      :+:    :+:   */
+/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 16:32:02 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/17 19:41:27 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/17 22:02:50 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_stock_str.h"
 
-int		get_size(char *str)
+int					get_size(char *str)
 {
 	int i;
 
@@ -23,7 +23,7 @@ int		get_size(char *str)
 	return (i);
 }
 
-char	*str_dump(char *str, int len)
+char				*str_dump(char *str, int len)
 {
 	char	*copy;
 	int		i;
@@ -37,7 +37,7 @@ char	*str_dump(char *str, int len)
 	return (copy);
 }
 
-t_stock_str		*convert_str(t_stock_str *tab, char *str)
+t_stock_str			*convert_str(t_stock_str *tab, char *str)
 {
 	tab->str = str;
 	tab->size = get_size(str);
@@ -47,7 +47,7 @@ t_stock_str		*convert_str(t_stock_str *tab, char *str)
 	return (tab);
 }
 
-void	free_tab(t_stock_str *tab, int size)
+void				free_tab(t_stock_str *tab, int size)
 {
 	int i;
 

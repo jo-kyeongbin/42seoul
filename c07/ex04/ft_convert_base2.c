@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 10:51:29 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/17 14:07:56 by kyeongbin        ###   ########.fr       */
+/*   Updated: 2020/08/18 16:22:32 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		get_basenbr(char *base, char c)
 	int i;
 
 	i = 0;
-	while (base[i] != '\0')
+	while (base[i])
 	{
 		if (c == base[i])
 			return (i);
@@ -34,7 +34,7 @@ int		get_basenbr(char *base, char c)
 	return (-1);
 }
 
-void	compact(char *arr, int interval)
+void	compact(char *arr, int start)
 {
 	int i;
 
@@ -42,11 +42,11 @@ void	compact(char *arr, int interval)
 	if (arr[0] == '-')
 	{
 		i++;
-		interval--;
+		start--;
 	}
-	while (i + interval < 34)
+	while (i + start < 34)
 	{
-		arr[i] = arr[i + interval];
+		arr[i] = arr[i + start];
 		i++;
 	}
 	while (i < 34)

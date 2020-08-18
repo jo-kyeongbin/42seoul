@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hson <hson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 20:02:38 by hson              #+#    #+#             */
-/*   Updated: 2020/08/17 22:42:38 by hson             ###   ########.fr       */
+/*   Updated: 2020/08/18 00:08:30 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -66,10 +67,11 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (nbr < 0)
 	{
 		ft_putchar('-');
-		temp = nbr * -1;
+		temp = (long long)nbr * -1;
 	}
 	else
 		temp = nbr;
+	printf("kkk : %lld\n",temp);
 	if (temp == 0)
 		ft_putchar(base[0]);
 	while (temp > 0)
