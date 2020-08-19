@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 22:25:41 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/18 22:14:19 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/19 20:47:20 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,13 @@ void	ft_putnbr_base(int nbr, char *base)
 	else
 	{
 		write(1, "-", 1);
-		temp = base[nbr % size * (-1)];
-		print_number(size, nbr / size * (-1), base);
-		write(1, &temp, 1);
+		if (nbr != -2147483648)
+			print_number(size, -nbr, base);
+		else
+		{
+			temp = base[nbr % size * (-1)];
+			print_number(size, nbr / size * (-1), base);
+			write(1, &temp, 1);
+		}
 	}
 }
