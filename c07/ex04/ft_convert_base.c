@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 10:27:31 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/18 16:19:32 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/18 22:00:10 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int		check_char(char c, char *base)
 
 int		atoi_base(int base_len, char *from_base, char *nbr)
 {
-	char	*base_int;
 	int		sign;
 	int		result;
 

@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 22:25:41 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/11 01:51:34 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/18 22:14:19 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		is_vaild_base(char *base)
 {
 	int i;
+	int j;
 
 	i = 0;
 	if (base[0] == '\0' || base[1] == '\0')
@@ -23,8 +24,12 @@ int		is_vaild_base(char *base)
 	{
 		if (base[i] == '+' || base[i] == '-')
 			return (0);
-		if (base[i] == base[i + 1])
-			return (0);
+		j = i + 1;
+		while (base[j] != '\0')
+		{
+			if (base[i] == base[j++])
+				return (0);
+		}
 		i++;
 	}
 	return (1);

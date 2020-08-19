@@ -6,22 +6,22 @@ int		main(void)
 {
 	printf("=====CASE01=====\n");
 	printf("nbr, base_from, base_to\n");
-	printf("-2147483648, ");
+	printf("2147483647, ");
    	printf("0123456789, ");
    	printf("0123456789abcdef\n");
-	printf("result : $%s$\n", ft_convert_base("-2147483648", "0123456789", "0123456789abcdef"));
-	printf("real answer : $-80000000$\n");
+	printf("result : $%s$\n", ft_convert_base("2147483647", "0123456789", "0123456789abcdef"));
+	printf("real answer : $7fffffff$\n");
 	printf("=====CASE02=====\n");
 	printf("nbr, base_from, base_to\n");
 	printf("---------7fffffff, ");
    	printf("0123456789abcdef, ");
 	printf("01\n");
 	printf("result : $%s$\n", ft_convert_base("---------7fffffff", "0123456789abcdef", "01"));
-	printf("answer : $-1111111111111111111111111111111$\n");
+	printf("real answer : $-1111111111111111111111111111111$\n");
 	printf("=====CASE03=====\n");
 	printf("nbr, base_from, base_to\n");
 	printf("---+--0001023a, ");
-	printf("0123456789, ");
+	printf("0123456789, "); 
 	printf("0123456789\n");
 	printf("result : $%s$\n", ft_convert_base("---+--0001023a", "0123456789", "0123456789"));
 	printf("real answer : $-1023$\n");
@@ -42,7 +42,7 @@ int		main(void)
 	printf("=====CASE06=====\n");
 	printf("nbr, base_from, base_to\n");
 	printf("aasdffeessddfffss, ");
-	printf("asedf, ");
+	printf("asedf, "); 
 	printf("ss\n");
 	printf("result : $%s$\n", ft_convert_base("aasdffeessddfffss", "asedf", "ss"));
 	printf("real answer : $(null)$\n");
