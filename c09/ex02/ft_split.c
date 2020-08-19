@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 14:14:24 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/18 15:43:05 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/18 16:38:07 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	**ft_split(char *str, char *charset)
 		while (!is_charset(*str, charset) && *str)
 		{
 			if (key == 0)
-			{	
+			{
 				start_word = str;
 				key = 1;
 			}
@@ -103,8 +103,7 @@ char	**ft_split(char *str, char *charset)
 		}
 		if (key == 1)
 			result[i++] = str_dup(start_word, str);
-		if (*str)
-			str++;
+		str++;
 	}
 	return (result);
 }
