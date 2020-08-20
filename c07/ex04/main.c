@@ -78,7 +78,7 @@ int		main(void)
 	printf("nbr, base_from, base_to\n");
 	printf(" -+a, ");
 	printf("\"\", ");
-   	printf("df");
-	printf("result : $%s$\n", ft_convert_base(" -+a", "", "df"));
+   	printf("aasdfad");
+	printf("result : $%s$\n", ft_convert_base(" -+2147483648","0123456789","aasdf"));
 	printf("real answer : $(null)$\n");
 }

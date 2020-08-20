@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 14:40:00 by junghkim          #+#    #+#             */
-/*   Updated: 2020/08/18 15:03:29 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/08/20 19:52:35 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_strlen(char *str)
+int		get_size(char *str)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-int		ft_check_base(char *base)
+int		check_base(char *base)
 {
 	int i;
 	int j;
@@ -48,7 +48,7 @@ int		ft_check_base(char *base)
 	return (1);
 }
 
-int		ft_check_char(char c, char *base)
+int		check_char(char c, char *base)
 {
 	int i;
 
@@ -60,13 +60,13 @@ int		ft_check_char(char c, char *base)
 	return (-1);
 }
 
-int		ft_atoi_base(char *str, char *base)
+int		atoi_base(char *str, char *base)
 {
 	int i;
 	int value;
 	int sign;
 
-	if (!ft_check_base(base))
+	if (!check_base(base))
 		return (0);
 	i = 0;
 	sign = 0;
@@ -79,9 +79,9 @@ int		ft_atoi_base(char *str, char *base)
 			sign++;
 		i++;
 	}
-	while (str[i] != '\0' && ft_check_char(str[i], base) >= 0)
+	while (str[i] != '\0' && check_char(str[i], base) >= 0)
 	{
-		value = value * ft_strlen(base) + ft_check_char(str[i], base);
+		value = value * get_size(base) + check_char(str[i], base);
 		i++;
 	}
 	if (sign % 2 == 1)
@@ -89,23 +89,9 @@ int		ft_atoi_base(char *str, char *base)
 	return (value);
 }
 
-void	ft_malloc_num(long *num, char **num_cvt)
+void	malloc_num(long *num, char **num_cvt)
 {
-	int		len;
-	long	num_temp;
-
-	len = 0;
-	num_temp = *num;
-	if (num_temp == 0 || num_temp < 0)
-		len++;
-	if (num_temp < 0)
-		num_temp *= (-1);
-	while (num_temp > 0)
-	{
-		num_temp /= 10;
-		len++;
-	}
-	*num_cvt = (char *)malloc(sizeof(char) * (len + 1));
+	*num_cvt = (char *)malloc(sizeof(char) * 34);
 	if (*num < 0)
 	{
 		*num *= (-1);

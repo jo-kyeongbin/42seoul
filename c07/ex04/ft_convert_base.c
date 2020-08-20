@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 10:27:31 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/18 22:00:10 by kjo              ###   ########.fr       */
+/*   Updated: 2020/08/20 05:23:48 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,16 @@ char	*itoa_base(int base_len, char *to_base, int nbr_int)
 
 	i = 33;
 	to_base_number = (char *)malloc(sizeof(char) * 34);
-	if (nbr_int < 0)
+	/*if (nbr_int == -2147483648)
 	{
 		to_base_number[0] = '-';
 		to_base_number[i--] = to_base[nbr_int % base_len * -1];
 		nbr_int /= (-1 * base_len);
+	}*/
+	if (nbr_int < 0)
+	{
+		to_base_number[0] = '-';
+		nbr_int *= -1;
 	}
 	while (nbr_int / base_len)
 	{
