@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/22 19:22:17 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/22 19:25:11 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	*ss1;
+	unsigned char	*ss2;
+
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
 	i = 0;
-	count = 0;
-	while (i < length)
+	while (i < n && ss1[i] && ss2[i])
 	{
-		if (f(tab[i]))
-			count++;
+		if (ss1[i] != ss2[i])
+			return (ss1[i] - ss2[i]);
 		i++;
 	}
-	return (count);
+	if (i == n)
+		return (0);
+	return (ss1[i] - ss2[i]);
 }

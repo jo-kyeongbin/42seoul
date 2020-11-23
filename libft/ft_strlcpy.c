@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/22 17:52:04 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/22 17:57:05 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	src_len;
+	size_t	i;
+
+	if (!src)
+		return (0);
+	src_len = ft_strlen(src);
+	if (dst == 0 || dstsize == 0)
+		return (src_len);
 	i = 0;
-	count = 0;
-	while (i < length)
+	while (i < src_len && i + 1 < dstsize)
 	{
-		if (f(tab[i]))
-			count++;
+		dst[i] = src[i];
 		i++;
 	}
-	return (count);
+	dst[i] = 0;
+	return (src_len);
 }

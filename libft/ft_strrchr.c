@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/22 18:22:08 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/22 18:43:33 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
-	i = 0;
-	count = 0;
-	while (i < length)
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	i;
+	char	*s2;
+	char	c2;
+
+	s2 = (char *)s;
+	c2 = (char)c;
+	i = ft_strlen(s);
+	while (i > 0)
 	{
-		if (f(tab[i]))
-			count++;
-		i++;
+		if (s2[i] == c2)
+			return (s2 + i);
+		i--;
 	}
-	return (count);
+	if (s2[i] == c2)
+		return (s2);
+	return (0);
 }

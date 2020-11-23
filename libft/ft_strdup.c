@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/23 15:29:16 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/23 15:31:26 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
+char	*ft_strdup(const char *s1)
+{
+	size_t	len;
+	size_t	i;
+	char	*result;
+
+	len = ft_strlen(s1);
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (result == 0)
+		return (0);
 	i = 0;
-	count = 0;
-	while (i < length)
+	while (i < len)
 	{
-		if (f(tab[i]))
-			count++;
+		result[i] = s1[i];
 		i++;
 	}
-	return (count);
+	result[len] = 0;
+	return (result);
 }

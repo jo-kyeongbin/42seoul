@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/23 16:31:44 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/23 16:31:59 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
-	i = 0;
-	count = 0;
-	while (i < length)
+int	ft_lstsize(t_list *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst)
 	{
-		if (f(tab[i]))
-			count++;
-		i++;
+		lst = lst->next;
+		size++;
 	}
-	return (count);
+	return (size);
 }

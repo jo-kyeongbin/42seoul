@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/23 16:34:16 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/23 16:34:18 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
-	i = 0;
-	count = 0;
-	while (i < length)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list *curr;
+	t_list *next;
+
+	if (lst == 0 || del == 0)
+		return ;
+	curr = *lst;
+	*lst = 0;
+	while (curr)
 	{
-		if (f(tab[i]))
-			count++;
-		i++;
+		next = curr->next;
+		ft_lstdelone(curr, del);
+		curr = next;
 	}
-	return (count);
 }

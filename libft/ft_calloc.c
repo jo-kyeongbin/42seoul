@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/23 15:26:02 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/23 15:28:54 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
-	i = 0;
-	count = 0;
-	while (i < length)
-	{
-		if (f(tab[i]))
-			count++;
-		i++;
-	}
-	return (count);
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*result;
+
+	result = malloc(size * count);
+	if (result == 0)
+		return (0);
+	ft_bzero(result, size * count);
+	return (result);
 }

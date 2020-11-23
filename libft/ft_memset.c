@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/22 17:16:55 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/22 17:17:00 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
+#include "libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int i;
-	int count;
+	size_t			i;
+	unsigned char	*addr;
+	unsigned char	temp;
 
 	i = 0;
-	count = 0;
-	while (i < length)
+	addr = (unsigned char *)b;
+	temp = (unsigned char)c;
+	while (i < len)
 	{
-		if (f(tab[i]))
-			count++;
+		addr[i] = temp;
 		i++;
 	}
-	return (count);
+	return (b);
 }

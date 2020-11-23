@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/23 16:22:56 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/23 16:24:12 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
-	i = 0;
-	count = 0;
-	while (i < length)
+static void	recur_putnbr(int n, int fd)
+{
+	if (n >= 10)
+		recur_putnbr(n / 10, fd);
+	write(fd, &"0123456789"[n % 10], 1);
+}
+
+void		ft_putnbr_fd(int n, int fd)
+{
+	if (fd < 0)
+		return ;
+	if (n == INT_MIN)
 	{
-		if (f(tab[i]))
-			count++;
-		i++;
+		write(fd, INT_MIN_STR, 11);
+		return ;
 	}
-	return (count);
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	recur_putnbr(n, fd);
 }

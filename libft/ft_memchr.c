@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/22 17:40:47 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/22 17:42:20 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*s2;
+	unsigned char	c2;
+
+	s2 = (unsigned char *)s;
+	c2 = (unsigned char)c;
 	i = 0;
-	count = 0;
-	while (i < length)
+	while (i < n)
 	{
-		if (f(tab[i]))
-			count++;
+		if (s2[i] == c2)
+			return (s2 + i);
 		i++;
 	}
-	return (count);
+	return (0);
 }

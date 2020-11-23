@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/23 16:30:22 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/23 16:31:21 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
-	i = 0;
-	count = 0;
-	while (i < length)
+void	ft_lstadd_back(t_list **lst, t_list *new_node)
+{
+	t_list	*curr;
+
+	if (lst == 0 || new_node == 0)
+		return ;
+	if (*lst == 0)
 	{
-		if (f(tab[i]))
-			count++;
-		i++;
+		*lst = new_node;
+		return ;
 	}
-	return (count);
+	curr = *lst;
+	while (curr->next)
+		curr = curr->next;
+	curr->next = new_node;
 }

@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/23 16:19:18 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/23 16:21:06 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	size_t	len;
+	size_t	i;
+	char	*result;
+
+	if (s == 0 || f == 0)
+		return (0);
+	len = ft_strlen(s);
+	if ((result = (char *)malloc(sizeof(char) * (len + 1))) == 0)
+		return (0);
 	i = 0;
-	count = 0;
-	while (i < length)
+	while (s[i])
 	{
-		if (f(tab[i]))
-			count++;
+		result[i] = f((unsigned int)i, s[i]);
 		i++;
 	}
-	return (count);
+	result[i] = 0;
+	return (result);
 }

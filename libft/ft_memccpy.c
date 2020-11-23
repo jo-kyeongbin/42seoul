@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/22 17:26:30 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/22 17:32:54 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*dst2;
+	unsigned char	*src2;
+	unsigned char	c2;
+
+	dst2 = (unsigned char *)dst;
+	src2 = (unsigned char *)src;
+	c2 = (unsigned char)c;
 	i = 0;
-	count = 0;
-	while (i < length)
+	while (i < n)
 	{
-		if (f(tab[i]))
-			count++;
+		dst2[i] = src2[i];
+		if (dst2[i] == c2)
+			return (dst2 + i + 1);
 		i++;
 	}
-	return (count);
+	return (0);
 }

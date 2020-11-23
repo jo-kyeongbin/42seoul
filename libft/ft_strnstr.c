@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/22 18:43:57 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/22 19:21:41 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t		i;
+	size_t		j;
+
+	if (*little == '\0')
+		return ((char *)big);
 	i = 0;
-	count = 0;
-	while (i < length)
+	while (big[i] && i < len)
 	{
-		if (f(tab[i]))
-			count++;
+		j = 0;
+		while (big[i + j] == little[j] && (i + j < len))
+		{
+			j++;
+			if (!little[j])
+				return ((char *)(big + i));
+		}
 		i++;
 	}
-	return (count);
+	return (NULL);
 }

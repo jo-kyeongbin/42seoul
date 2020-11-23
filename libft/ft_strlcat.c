@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjo <kjo@student.42.seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 00:31:22 by kjo               #+#    #+#             */
-/*   Updated: 2020/08/21 03:28:36 by kjo              ###   ########.fr       */
+/*   Created: 2020/11/22 17:57:19 by kjo               #+#    #+#             */
+/*   Updated: 2020/11/22 18:10:33 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
-{
-	int i;
-	int count;
+#include "libft.h"
 
-	i = 0;
-	count = 0;
-	while (i < length)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	len;
+
+	len = 0;
+	while (*dst != 0 && len < dstsize)
 	{
-		if (f(tab[i]))
-			count++;
-		i++;
+		len++;
+		dst++;
 	}
-	return (count);
+	while (*src != 0 && len + 1 < dstsize)
+	{
+		*dst++ = *src++;
+		len++;
+	}
+	if (len < dstsize)
+		*dst = 0;
+	while (*src++ != 0)
+		len++;
+	return (len);
 }
