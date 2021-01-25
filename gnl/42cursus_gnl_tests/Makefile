@@ -1,9 +1,9 @@
 # get next line folder, where are your files located?
-GET_NEXT_LINE_FOLDER=./get_next_line
+GET_NEXT_LINE_FOLDER=./gnl
 
 # test bonus?
 # set to 'yes' or 'no'
-BONUS=no
+BONUS=yes
 
 # what buffer sizes to test, seperated by space
 BUF_SIZE_TESTS="1 2 5 6 20 25 1024 5000 10000000"
