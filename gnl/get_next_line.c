@@ -6,7 +6,7 @@
 /*   By: kjo <kjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:07:08 by kjo               #+#    #+#             */
-/*   Updated: 2021/01/25 17:12:08 by kjo              ###   ########.fr       */
+/*   Updated: 2021/01/25 19:49:16 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int					get_next_line(int fd, char **line)
 	int				read_size;
 	int				cut_idx;
 
-	if ((fd < 0) || (line == 0) || (BUFFER_SIZE <= 0))
+	if ((fd >= OPEN_MAX) || (fd < 0) || (line == 0) || (BUFFER_SIZE <= 0))
 		return (-1);
 	while ((read_size = read(fd, info.buf, BUFFER_SIZE)) > 0)
 	{

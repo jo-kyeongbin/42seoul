@@ -6,11 +6,11 @@
 /*   By: kjo <kjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:11:42 by kjo               #+#    #+#             */
-/*   Updated: 2021/01/25 17:11:45 by kjo              ###   ########.fr       */
+/*   Updated: 2021/01/25 19:47:33 by kjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int					is_newline(char *remainder)
 {
@@ -70,7 +70,7 @@ int					get_next_line(int fd, char **line)
 	int				read_size;
 	int				cut_idx;
 
-	if ((fd < 0) || (line == 0) || (BUFFER_SIZE <= 0))
+	if ((fd >= OPEN_MAX) || (fd < 0) || (line == 0) || (BUFFER_SIZE <= 0))
 		return (-1);
 	while ((read_size = read(fd, info.buf, BUFFER_SIZE)) > 0)
 	{
